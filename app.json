@@ -31,6 +31,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "51092087-87a4-4b12-8008-145625477434"
+      }
+    },
+    "owner": "betoatexpo"
   }
 }
