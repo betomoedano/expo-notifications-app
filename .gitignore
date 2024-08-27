@@ -10,6 +10,9 @@ npm-debug.*
 *.orig.*
 web-build/
 
+/ios
+/android
+
 # macOS
 .DS_Store
 
@@ -20,4 +23,4 @@ expo-env.d.ts
 # @end expo-cli
 
 # google services file
-exponotificationsapp-firebase-adminsdk-tknug-a8589153c0.json
+google-services.json
