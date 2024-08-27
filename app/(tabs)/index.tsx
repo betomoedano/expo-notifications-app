@@ -36,7 +36,7 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Latest notification:</ThemedText>
         <ThemedText>{notification?.request.content.title}</ThemedText>
-        <DOMCoolCode code={JSON.stringify(notification)} />
+        {/* <DOMCoolCode code={JSON.stringify(notification)} /> */}
       </ThemedView>
     </ParallaxScrollView>
   );

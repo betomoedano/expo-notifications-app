@@ -18,3 +18,6 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
+
+# google services file
+exponotificationsapp-firebase-adminsdk-tknug-a8589153c0.json
