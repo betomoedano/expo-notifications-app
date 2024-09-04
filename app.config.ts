@@ -15,6 +15,9 @@ module.exports = {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "dev.expo.notificationsapp",
+      infoPlist: {
+        UIBackgroundModes: ["fetch", "remote-notification"],
+      },
     },
     android: {
       adaptiveIcon: {
