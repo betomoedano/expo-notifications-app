@@ -44,6 +44,12 @@ module.exports = {
         projectId: "51092087-87a4-4b12-8008-145625477434",
       },
     },
+    updates: {
+      url: "https://u.expo.dev/51092087-87a4-4b12-8008-145625477434",
+    },
+    runtimeVersion: {
+      policy: "appVersion",
+    },
     owner: "betoatexpo",
   },
 };
