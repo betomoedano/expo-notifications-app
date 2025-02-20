@@ -1,6 +1,10 @@
-# Welcome to your Expo app 👋
+# Expo Push Notifications Demo App 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a demo project showcasing how to implement push notifications in an [Expo](https://expo.dev) application.
+
+## Important Note
+
+Before running this project, make sure to remove the `projectId` from `app.config.ts` file to avoid any conflicts.
 
 ## Get started
 
@@ -13,38 +17,38 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 2. Start the app
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+You can run the app on:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Development build](https://docs.expo.dev/develop/development-builds/introduction/) (Recommended for testing notifications)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Note: Push notifications have limited functionality in Expo Go.
 
-## Get a fresh project
+## Features
 
-When you're ready, run:
+This demo showcases:
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Setting up push notification permissions
+- Handling notification tokens
+- Receiving and displaying notifications
+- Background notification handling
+- Customizing notification behavior
 
 ## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+To learn more about push notifications in Expo:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Expo Notifications documentation](https://docs.expo.dev/push-notifications/overview/)
+- [Push Notifications guide](https://docs.expo.dev/push-notifications/push-notifications-setup/)
+- [Notification Channels for Android](https://docs.expo.dev/versions/latest/sdk/notifications/#managing-notification-channels-on-android)
 
-## Join the community
+## Need help?
 
-Join our community of developers creating universal apps.
+Join the Expo community:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo on GitHub](https://github.com/expo/expo)
+- [Discord community](https://chat.expo.dev)
