@@ -25,7 +25,7 @@ module.exports = {
         backgroundColor: "#ffffff",
       },
       package: "dev.expo.notificationsapp",
-      googleServicesFile: process.env.GOOGLE_SERVICES_JSON,
+      googleServicesFile: "./google-services.json",
     },
     web: {
       bundler: "metro",
