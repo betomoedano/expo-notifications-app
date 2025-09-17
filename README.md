@@ -2,6 +2,8 @@
 
 This is a demo project showcasing how to implement push notifications in an [Expo](https://expo.dev) application.
 
+**The icon of this app was generated using [snapai](https://github.com/betomoedano/snapai)**
+
 ## Important Note
 
 Before running this project, make sure to remove the `projectId` from `app.config.ts` file to avoid any conflicts.
