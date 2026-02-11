@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Alert, Button, Platform, SafeAreaView, StatusBar } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useNotification } from "@/context/NotificationContext";
-import DOMCoolCode from "@/components/DOMCoolCode";
 import * as Updates from "expo-updates";
 
 export default function HomeScreen() {
   const { notification, expoPushToken, error } = useNotification();
   const { currentlyRunning, isUpdateAvailable, isUpdatePending } =
     Updates.useUpdates();
-
-  const [dummyState, setDummyState] = useState(0);
-
-  if (error) {
-    return <ThemedText>Error: {error.message}</ThemedText>;
-  }
 
   useEffect(() => {
     if (isUpdatePending) {
@@ -31,8 +24,11 @@ export default function HomeScreen() {
   const dummyFunction = async () => {
     try {
       await Updates.reloadAsync();
-    } catch (e) {
-      Alert.alert("Error");
+    } catch (error: unknown) {
+      Alert.alert(
+        "Error",
+        error instanceof Error ? error.message : "Unknown error",
+      );
     }
 
     // UNCOMMENT TO REPRODUCE EAS UPDATE ERROR
@@ -42,6 +38,9 @@ export default function HomeScreen() {
     // }
   };
 
+  if (error) {
+    return <ThemedText>Error: {error.message}</ThemedText>;
+  }
   // If true, we show the button to download and run the update
   const showDownloadButton = isUpdateAvailable;
 
@@ -55,7 +54,7 @@ export default function HomeScreen() {
       style={{
         flex: 1,
         padding: 10,
-        paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 10,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
       }}
     >
       <SafeAreaView style={{ flex: 1 }}>

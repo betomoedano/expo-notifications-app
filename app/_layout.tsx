@@ -16,7 +16,8 @@ import { NotificationProvider } from "@/context/NotificationContext";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
-    shouldShowAlert: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
     shouldPlaySound: true,
     shouldSetBadge: true,
   }),
@@ -33,7 +34,8 @@ TaskManager.defineTask(
       executionInfo,
     });
     // Do something with the notification data
-  }
+    return Promise.resolve();
+  },
 );
 
 Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK);
@@ -62,7 +64,6 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
         </Stack>
       </ThemeProvider>
     </NotificationProvider>
