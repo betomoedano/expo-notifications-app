@@ -1,6 +1,6 @@
 module.exports = {
   expo: {
-    name: "Expo Notifications",
+    name: "Notif Demo",
     slug: "expo-notifications-app",
     version: "1.0.0",
     orientation: "portrait",
