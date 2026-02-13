@@ -1,17 +1,12 @@
 module.exports = {
   expo: {
-    name: "expo-notifications-app",
+    name: "Expo Notifications",
     slug: "expo-notifications-app",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
     scheme: "myapp",
-    userInterfaceStyle: "automatic",
-    splash: {
-      image: "./assets/images/splash.png",
-      resizeMode: "contain",
-      backgroundColor: "#ffffff",
-    },
+    userInterfaceStyle: "light",
     ios: {
       supportsTablet: true,
       bundleIdentifier: "dev.expo.notificationsapp",
@@ -27,12 +22,7 @@ module.exports = {
       package: "dev.expo.notificationsapp",
       googleServicesFile: "./google-services.json",
     },
-    web: {
-      bundler: "metro",
-      output: "static",
-      favicon: "./assets/images/favicon.png",
-    },
-    plugins: ["expo-router", "expo-font"],
+    plugins: ["expo-router"],
     experiments: {
       typedRoutes: true,
     },
@@ -43,9 +33,6 @@ module.exports = {
       eas: {
         projectId: "51092087-87a4-4b12-8008-145625477434",
       },
-    },
-    updates: {
-      url: "https://u.expo.dev/51092087-87a4-4b12-8008-145625477434",
     },
     runtimeVersion: {
       policy: "appVersion",

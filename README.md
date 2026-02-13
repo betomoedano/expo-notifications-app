@@ -1,8 +1,8 @@
-# Expo Push Notifications Demo App 👋
+# Expo Push Notifications Demo App
 
-This is a demo project showcasing how to implement push notifications in an [Expo](https://expo.dev) application.
+A demo project by [Code with Beto](https://codewithbeto.dev) showcasing how to implement push notifications in an [Expo](https://expo.dev) application.
 
-**The icon of this app was generated using [snapai](https://github.com/betomoedano/snapai)**
+The icon of this app was generated using [SnapAI](https://codewithbeto.dev/tools/snapAI) — an AI-powered icon generation CLI for React Native & Expo.
 
 ## Important Note
 
@@ -13,7 +13,7 @@ Before running this project, make sure to remove the `projectId` from `app.confi
 1. Install dependencies
 
    ```bash
-   npm install
+   bun i
    ```
 
 2. Start the app
@@ -40,17 +40,21 @@ This demo showcases:
 - Background notification handling
 - Customizing notification behavior
 
-## Learn more
+## Testing Notifications with QuickPush
 
-To learn more about push notifications in Expo:
+Use [QuickPush](https://apple.co/4tvT4wF) to send test push notifications straight from your Mac menu bar. Just grab the Expo push token from the app, paste it into QuickPush, and fire off notifications instantly.
+
+[Get QuickPush on the Mac App Store](https://apple.co/4tvT4wF)
+
+## Learn more
 
 - [Expo Notifications documentation](https://docs.expo.dev/push-notifications/overview/)
 - [Push Notifications guide](https://docs.expo.dev/push-notifications/push-notifications-setup/)
-- [Notification Channels for Android](https://docs.expo.dev/versions/latest/sdk/notifications/#managing-notification-channels-on-android)
+- [React Native Course](https://cwb.sh/rn) — learn to build production-ready React Native apps
 
-## Need help?
+## Community
 
-Join the Expo community:
-
-- [Expo on GitHub](https://github.com/expo/expo)
-- [Discord community](https://chat.expo.dev)
+- [YouTube](https://cwb.sh/youtube)
+- [Discord](https://cwb.sh/discord)
+- [Newsletter](https://cwb.sh/newsletter)
+- [X/Twitter](https://x.com/betomoedano)
