@@ -10,9 +10,23 @@ import {
   View,
 } from "react-native";
 import * as Clipboard from "expo-clipboard";
+import * as Notifications from "expo-notifications";
 import { useNotification } from "@/context/NotificationContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Color } from "expo-router";
+
+function getNotificationImage(
+  notification: Notifications.Notification,
+): string | undefined {
+  // iOS: image is in _richContent
+  const data = notification.request.content.data as Record<string, any> | undefined;
+  const iosImage = data?._richContent?.image;
+  if (iosImage) return iosImage;
+
+  // Android: image is in the remote message notification payload
+  const trigger = notification.request.trigger as { remoteMessage?: { notification?: { imageUrl?: string } } };
+  return trigger?.remoteMessage?.notification?.imageUrl;
+}
 
 const blue = Platform.select({
   ios: Color.ios.systemBlue,
@@ -101,14 +115,19 @@ export default function HomeScreen() {
             <Text style={{ fontSize: 17, fontWeight: "600", color: "#000" }}>
               Latest Notification
             </Text>
-            <Text style={{ fontSize: 15, color: "#3C3C43", marginTop: 8 }}>
-              {notification.request.content.title}
-            </Text>
-            {notification.request.content.data?._richContent?.image && (
+            {notification.request.content.title && (
+              <Text style={{ fontSize: 16, fontWeight: "600", marginTop: 8 }}>
+                {notification.request.content.title}
+              </Text>
+            )}
+            {notification.request.content.body && (
+              <Text style={{ fontSize: 15, color: "#3C3C43", marginTop: 4 }}>
+                {notification.request.content.body}
+              </Text>
+            )}
+            {getNotificationImage(notification) && (
               <Image
-                source={{
-                  uri: notification.request.content.data._richContent.image,
-                }}
+                source={{ uri: getNotificationImage(notification) }}
                 style={{
                   width: "100%",
                   height: 200,
@@ -117,18 +136,6 @@ export default function HomeScreen() {
                 }}
                 resizeMode="cover"
               />
-            )}
-            {notification.request.content.data && (
-              <Text
-                style={{
-                  fontSize: 13,
-                  fontFamily: Platform.OS === "ios" ? "Menlo" : "monospace",
-                  color: "#8E8E93",
-                  marginTop: 4,
-                }}
-              >
-                {JSON.stringify(notification.request.content.data, null, 2)}
-              </Text>
             )}
           </View>
         )}
