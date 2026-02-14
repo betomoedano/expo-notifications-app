@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Image,
   Linking,
   Platform,
   Pressable,
@@ -103,6 +104,20 @@ export default function HomeScreen() {
             <Text style={{ fontSize: 15, color: "#3C3C43", marginTop: 8 }}>
               {notification.request.content.title}
             </Text>
+            {notification.request.content.data?._richContent?.image && (
+              <Image
+                source={{
+                  uri: notification.request.content.data._richContent.image,
+                }}
+                style={{
+                  width: "100%",
+                  height: 200,
+                  borderRadius: 12,
+                  marginTop: 12,
+                }}
+                resizeMode="cover"
+              />
+            )}
             {notification.request.content.data && (
               <Text
                 style={{
