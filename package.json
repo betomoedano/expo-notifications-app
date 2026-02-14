@@ -12,6 +12,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@bacons/apple-targets": "^4.0.2",
     "@react-navigation/native": "7.1.28",
     "expo": "^55.0.0-preview.10",
     "expo-clipboard": "^55.0.5",

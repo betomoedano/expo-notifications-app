@@ -10,6 +10,7 @@ module.exports = {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "dev.expo.notificationsapp",
+      appleTeamId: "",
       infoPlist: {
         UIBackgroundModes: ["fetch", "remote-notification"],
       },
@@ -22,7 +23,7 @@ module.exports = {
       package: "dev.expo.notificationsapp",
       googleServicesFile: "./google-services.json",
     },
-    plugins: ["expo-router"],
+    plugins: ["expo-router", "@bacons/apple-targets"],
     experiments: {
       typedRoutes: true,
     },
