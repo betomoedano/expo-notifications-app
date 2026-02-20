@@ -24,3 +24,4 @@ expo-env.d.ts
 
 # google services file
 google-services.json
+service-account.json

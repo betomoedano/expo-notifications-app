@@ -19,12 +19,16 @@ function getNotificationImage(
   notification: Notifications.Notification,
 ): string | undefined {
   // iOS: image is in _richContent
-  const data = notification.request.content.data as Record<string, any> | undefined;
+  const data = notification.request.content.data as
+    | Record<string, any>
+    | undefined;
   const iosImage = data?._richContent?.image;
   if (iosImage) return iosImage;
 
   // Android: image is in the remote message notification payload
-  const trigger = notification.request.trigger as { remoteMessage?: { notification?: { imageUrl?: string } } };
+  const trigger = notification.request.trigger as {
+    remoteMessage?: { notification?: { imageUrl?: string } };
+  };
   return trigger?.remoteMessage?.notification?.imageUrl;
 }
 
@@ -34,12 +38,20 @@ const blue = Platform.select({
 });
 
 export default function HomeScreen() {
-  const { notification, expoPushToken, error } = useNotification();
+  const { notification, expoPushToken, devicePushToken, error } =
+    useNotification();
   const [copied, setCopied] = useState(false);
 
   const copyToken = async () => {
     if (!expoPushToken) return;
     await Clipboard.setStringAsync(expoPushToken);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const copyDeviceToken = async () => {
+    if (!devicePushToken) return;
+    await Clipboard.setStringAsync(devicePushToken);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -98,6 +110,35 @@ export default function HomeScreen() {
             numberOfLines={2}
           >
             {expoPushToken || "Generating token..."}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              color: copied ? "#34C759" : "#8E8E93",
+              marginTop: 8,
+            }}
+          >
+            {copied ? "Copied!" : "Tap to copy"}
+          </Text>
+        </Pressable>
+
+        <Pressable
+          onPress={copyDeviceToken}
+          style={{
+            marginTop: 20,
+            borderRadius: 12,
+            padding: 16,
+            backgroundColor: "#00000005",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 13,
+              fontFamily: Platform.OS === "ios" ? "Menlo" : "monospace",
+              color: blue,
+            }}
+          >
+            {devicePushToken || "Generating device token..."}
           </Text>
           <Text
             style={{
